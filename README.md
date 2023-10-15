@@ -12,32 +12,32 @@ This program needs to install the following package and libraries:
 ## Configuration
 Prepare an ssh config file describing parameters to access the target host. An example is below:
 
-> Host example1
->    Hostname 192.168.64.2
->    Port 22
->    identityFile ~/.ssh/example01
->    User ubuntu
+> Host example1  
+>    &emsp;Hostname 192.168.64.2  
+>    &emsp;Port 22  
+>    &emsp;identityFile ~/.ssh/example01  
+>    &emsp;User ubuntu
 >
-> Host example2
->    Hostname 172.16.10.2
->    Port 22
->    User ubuntu
->    UpdateHostKeys ask
->    IdentitiesOnly yes
->    IdentityFile ~/.ssh/example02
->    ProxyJump example1
->    DynamicForward 1080
+> Host example2  
+>    &emsp;Hostname 172.16.10.2  
+>    &emsp;Port 22  
+>    &emsp;User ubuntu  
+>    &emsp;UpdateHostKeys ask  
+>    &emsp;IdentitiesOnly yes  
+>    &emsp;IdentityFile ~/.ssh/example02  
+>    &emsp;ProxyJump example1  
+>    &emsp;DynamicForward 1080
 
 
 Describe configurations of this program in "ssh_autologin_config.yml" file. In this config file, you can set multiple target hosts. For each target host, you need to decide its ID and set a hostname, which should be the same with one of hosts described in ssh config file, and password list (if the target host is accessed via some bastions and some of them need password, you need to describe those passwords in order) in the nest on the ID. An example is below:
 
-> host1:
->   host: example1
->   pass: [pass1]
+> host1:  
+>   &emsp;host: example1  
+>   &emsp;pass: [pass1]
 >
-> host2:
->   host: example2
->   pass: [pass1, pass2]
+> host2:  
+>   &emsp;host: example2  
+>   &emsp;pass: [pass1, pass2]  
 
 "ssh_autologin.py" and "ssh_autologin_configuration.yml" should be in the same directry. Or you need modify the name of the configuration file to the PATH.
 
