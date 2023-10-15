@@ -1,0 +1,7 @@
+host1:
+  host: example1
+  pass: [pass1]
+
+host2:
+  host: example2
+  pass: [pass1, pass2]
