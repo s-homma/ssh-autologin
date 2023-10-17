@@ -8,6 +8,7 @@ This program needs to install the following package and libraries:
 * python3.x
 * pexpect
 * PyYAML
+* curses
 
 ## Configuration
 Prepare an ssh config file describing parameters to access the target host. An example is below:
