@@ -7,10 +7,10 @@ HOST_NOTFOUND = "ssh: Could not resolve hostname test: nodename nor servname pro
 
 ID = sys.argv[1]
 
-def ssh_connect(HOST, PASSWORD):
-    print(HOST)
-    print(PASSWORD)
+def ssh_connect(HOST, PASSWORD, term_lines, terms_cols):
+    print('connecting ' + HOST)
     connect = pexpect.spawn('ssh ' + HOST)
+    connect.setwinsize(term_lines, terms_cols)
     for i in range(len(PASSWORD)):
         connect = check_connect(connect, PASSWORD[i])
         if connect == 1:
@@ -49,8 +49,7 @@ def main():
     term_lines = int(curses.tigetnum("lines"))
     term_cols = int(curses.tigetnum("cols"))
     print(term_lines, term_cols)
-
-    print(ssh_connect(HOST, PASSWORD))
+    print(ssh_connect(HOST, PASSWORD, term_lines, term_cols))
     return
 
 if __name__ == '__main__':
