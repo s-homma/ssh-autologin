@@ -45,7 +45,7 @@ Describe configurations of this program in "ssh_autologin_config.yml" file. In t
 ## How to use
 In your terminal or command prompt, run "ssh_autologin.py" with a host ID as its argument. Host ID must be one of IDs in "ssh_autologin_configuration.yml".
 
-> $ python3 ssh_autologin.py example1
+> $ python3 ssh_autologin.py host1
 
 
 
